@@ -22,7 +22,7 @@ class DataIngestionConfig:
     
 class DataIngestion:
     def __init__(self):
-        self.ingestion_config=DataIngestionConfig
+        self.ingestion_config = DataIngestionConfig()  # Fix: Add parentheses to initialize the object
         
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion mothod or component")

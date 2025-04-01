@@ -46,10 +46,10 @@ class DataTransformation:
             
             cat_pipline = Pipeline(
                 steps=[
-                    ("imputer",SimpleImputer(strategy="most_frequent")),
-                    ("one_hot_encoder",OneHotEncoder()),
-                    ("scaler",StandardScaler(with_mean=False))
-                    ]
+                    ("imputer", SimpleImputer(strategy="constant", fill_value="unknown")),  # Replace missing values with 'unknown'
+                    ("one_hot_encoder", OneHotEncoder(handle_unknown="ignore")),  # Allow unknown categories
+                    ("scaler", StandardScaler(with_mean=False))
+                ]
             )    
             
             logging.info(f"Numerical columns {num_features}")
